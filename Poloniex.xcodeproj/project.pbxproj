@@ -1,0 +1,328 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D38FF0351F2EEE5800699A7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38FF0341F2EEE5800699A7A /* AppDelegate.swift */; };
+		D38FF0371F2EEE5800699A7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38FF0361F2EEE5800699A7A /* ViewController.swift */; };
+		D38FF03A1F2EEE5800699A7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38FF0381F2EEE5800699A7A /* Main.storyboard */; };
+		D38FF03D1F2EEE5800699A7A /* Poloniex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D38FF03B1F2EEE5800699A7A /* Poloniex.xcdatamodeld */; };
+		D38FF03F1F2EEE5800699A7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38FF03E1F2EEE5800699A7A /* Assets.xcassets */; };
+		D38FF0421F2EEE5800699A7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38FF0401F2EEE5800699A7A /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D38FF0311F2EEE5800699A7A /* Poloniex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poloniex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D38FF0341F2EEE5800699A7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D38FF0361F2EEE5800699A7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D38FF0391F2EEE5800699A7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D38FF03C1F2EEE5800699A7A /* Poloniex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Poloniex.xcdatamodel; sourceTree = "<group>"; };
+		D38FF03E1F2EEE5800699A7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D38FF0411F2EEE5800699A7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D38FF0431F2EEE5800699A7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D38FF02E1F2EEE5800699A7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D38FF0281F2EEE5800699A7A = {
+			isa = PBXGroup;
+			children = (
+				D38FF0331F2EEE5800699A7A /* Poloniex */,
+				D38FF0321F2EEE5800699A7A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D38FF0321F2EEE5800699A7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D38FF0311F2EEE5800699A7A /* Poloniex.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D38FF0331F2EEE5800699A7A /* Poloniex */ = {
+			isa = PBXGroup;
+			children = (
+				D38FF0341F2EEE5800699A7A /* AppDelegate.swift */,
+				D38FF0361F2EEE5800699A7A /* ViewController.swift */,
+				D38FF0381F2EEE5800699A7A /* Main.storyboard */,
+				D38FF03E1F2EEE5800699A7A /* Assets.xcassets */,
+				D38FF0401F2EEE5800699A7A /* LaunchScreen.storyboard */,
+				D38FF0431F2EEE5800699A7A /* Info.plist */,
+				D38FF03B1F2EEE5800699A7A /* Poloniex.xcdatamodeld */,
+			);
+			path = Poloniex;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D38FF0301F2EEE5800699A7A /* Poloniex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D38FF0461F2EEE5800699A7A /* Build configuration list for PBXNativeTarget "Poloniex" */;
+			buildPhases = (
+				D38FF02D1F2EEE5800699A7A /* Sources */,
+				D38FF02E1F2EEE5800699A7A /* Frameworks */,
+				D38FF02F1F2EEE5800699A7A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Poloniex;
+			productName = Poloniex;
+			productReference = D38FF0311F2EEE5800699A7A /* Poloniex.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D38FF0291F2EEE5800699A7A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Nikola Stan";
+				TargetAttributes = {
+					D38FF0301F2EEE5800699A7A = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 6J9735Q573;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D38FF02C1F2EEE5800699A7A /* Build configuration list for PBXProject "Poloniex" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D38FF0281F2EEE5800699A7A;
+			productRefGroup = D38FF0321F2EEE5800699A7A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D38FF0301F2EEE5800699A7A /* Poloniex */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D38FF02F1F2EEE5800699A7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D38FF0421F2EEE5800699A7A /* LaunchScreen.storyboard in Resources */,
+				D38FF03F1F2EEE5800699A7A /* Assets.xcassets in Resources */,
+				D38FF03A1F2EEE5800699A7A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D38FF02D1F2EEE5800699A7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D38FF0371F2EEE5800699A7A /* ViewController.swift in Sources */,
+				D38FF0351F2EEE5800699A7A /* AppDelegate.swift in Sources */,
+				D38FF03D1F2EEE5800699A7A /* Poloniex.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D38FF0381F2EEE5800699A7A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D38FF0391F2EEE5800699A7A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D38FF0401F2EEE5800699A7A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D38FF0411F2EEE5800699A7A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D38FF0441F2EEE5800699A7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D38FF0451F2EEE5800699A7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D38FF0471F2EEE5800699A7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6J9735Q573;
+				INFOPLIST_FILE = Poloniex/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikolastan.Poloniex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D38FF0481F2EEE5800699A7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6J9735Q573;
+				INFOPLIST_FILE = Poloniex/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikolastan.Poloniex;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D38FF02C1F2EEE5800699A7A /* Build configuration list for PBXProject "Poloniex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D38FF0441F2EEE5800699A7A /* Debug */,
+				D38FF0451F2EEE5800699A7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D38FF0461F2EEE5800699A7A /* Build configuration list for PBXNativeTarget "Poloniex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D38FF0471F2EEE5800699A7A /* Debug */,
+				D38FF0481F2EEE5800699A7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D38FF03B1F2EEE5800699A7A /* Poloniex.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D38FF03C1F2EEE5800699A7A /* Poloniex.xcdatamodel */,
+			);
+			currentVersion = D38FF03C1F2EEE5800699A7A /* Poloniex.xcdatamodel */;
+			path = Poloniex.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D38FF0291F2EEE5800699A7A /* Project object */;
+}
