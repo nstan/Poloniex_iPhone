@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D385C5531F33142700A66909 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385C5521F33142700A66909 /* CryptoSwift.framework */; };
+		D385C5551F33142F00A66909 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385C5541F33142F00A66909 /* Starscream.framework */; };
+		D385C5571F33143300A66909 /* Swamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385C5561F33143300A66909 /* Swamp.framework */; };
+		D385C5591F33143700A66909 /* SwampProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385C5581F33143700A66909 /* SwampProject.framework */; };
+		D385C55B1F33143C00A66909 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385C55A1F33143C00A66909 /* SwiftyJSON.framework */; };
 		D38FF0351F2EEE5800699A7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38FF0341F2EEE5800699A7A /* AppDelegate.swift */; };
 		D38FF03A1F2EEE5800699A7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38FF0381F2EEE5800699A7A /* Main.storyboard */; };
 		D38FF03D1F2EEE5800699A7A /* Poloniex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D38FF03B1F2EEE5800699A7A /* Poloniex.xcdatamodeld */; };
@@ -26,6 +31,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D385C5521F33142700A66909 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Poloniex/SwampProject/build/Debug/CryptoSwift.framework; sourceTree = "<group>"; };
+		D385C5541F33142F00A66909 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Poloniex/SwampProject/build/Debug/Starscream.framework; sourceTree = "<group>"; };
+		D385C5561F33143300A66909 /* Swamp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swamp.framework; path = Poloniex/SwampProject/build/Debug/Swamp.framework; sourceTree = "<group>"; };
+		D385C5581F33143700A66909 /* SwampProject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwampProject.framework; path = Poloniex/SwampProject/build/Debug/SwampProject.framework; sourceTree = "<group>"; };
+		D385C55A1F33143C00A66909 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Poloniex/SwampProject/build/Debug/SwiftyJSON.framework; sourceTree = "<group>"; };
 		D38FF0311F2EEE5800699A7A /* Poloniex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poloniex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D38FF0341F2EEE5800699A7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D38FF0391F2EEE5800699A7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,17 +63,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D385C55B1F33143C00A66909 /* SwiftyJSON.framework in Frameworks */,
+				D385C5591F33143700A66909 /* SwampProject.framework in Frameworks */,
+				D385C5571F33143300A66909 /* Swamp.framework in Frameworks */,
+				D385C5551F33142F00A66909 /* Starscream.framework in Frameworks */,
+				D385C5531F33142700A66909 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D385C5511F33142700A66909 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D385C55A1F33143C00A66909 /* SwiftyJSON.framework */,
+				D385C5581F33143700A66909 /* SwampProject.framework */,
+				D385C5561F33143300A66909 /* Swamp.framework */,
+				D385C5541F33142F00A66909 /* Starscream.framework */,
+				D385C5521F33142700A66909 /* CryptoSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D38FF0281F2EEE5800699A7A = {
 			isa = PBXGroup;
 			children = (
 				D38FF0331F2EEE5800699A7A /* Poloniex */,
 				D38FF0321F2EEE5800699A7A /* Products */,
+				D385C5511F33142700A66909 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,6 +350,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6J9735Q573;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Poloniex/SwampProject/build/Debug",
+				);
 				INFOPLIST_FILE = Poloniex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikolastan.Poloniex;
@@ -338,6 +370,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6J9735Q573;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Poloniex/SwampProject/build/Debug",
+				);
 				INFOPLIST_FILE = Poloniex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nikolastan.Poloniex;
