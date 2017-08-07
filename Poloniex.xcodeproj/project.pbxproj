@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D333F8FE1F385B1B005C8A40 /* same.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D333F8FD1F385B1B005C8A40 /* same.mp3 */; };
+		D333F9001F385D67005C8A40 /* up.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D333F8FF1F385D67005C8A40 /* up.mp3 */; };
 		D36D10481F36AA7700BD7BEB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10471F36AA7700BD7BEB /* SwiftyJSON.framework */; };
 		D36D10491F36AA7700BD7BEB /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10471F36AA7700BD7BEB /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D36D104B1F36AA7700BD7BEB /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36D104A1F36AA7700BD7BEB /* Starscream.framework */; };
@@ -17,6 +19,8 @@
 		D36D10521F36AA7700BD7BEB /* Swamp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10501F36AA7700BD7BEB /* Swamp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D36D10541F36AA7700BD7BEB /* SwampProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10531F36AA7700BD7BEB /* SwampProject.framework */; };
 		D36D10551F36AA7700BD7BEB /* SwampProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10531F36AA7700BD7BEB /* SwampProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D36D105B1F383D3000BD7BEB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36D105A1F383D3000BD7BEB /* Constants.swift */; };
+		D36D10631F384EAE00BD7BEB /* down.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D36D10611F384EAE00BD7BEB /* down.mp3 */; };
 		D385C5531F33142700A66909 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385C5521F33142700A66909 /* CryptoSwift.framework */; };
 		D385C5551F33142F00A66909 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385C5541F33142F00A66909 /* Starscream.framework */; };
 		D385C5571F33143300A66909 /* Swamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385C5561F33143300A66909 /* Swamp.framework */; };
@@ -59,11 +63,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D333F8FD1F385B1B005C8A40 /* same.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = same.mp3; sourceTree = "<group>"; };
+		D333F8FF1F385D67005C8A40 /* up.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = up.mp3; sourceTree = "<group>"; };
 		D36D10471F36AA7700BD7BEB /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36D104A1F36AA7700BD7BEB /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36D104D1F36AA7700BD7BEB /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36D10501F36AA7700BD7BEB /* Swamp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swamp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36D10531F36AA7700BD7BEB /* SwampProject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwampProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D36D10591F382C9500BD7BEB /* Poloniex.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Poloniex.entitlements; sourceTree = "<group>"; };
+		D36D105A1F383D3000BD7BEB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D36D10611F384EAE00BD7BEB /* down.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = down.mp3; sourceTree = "<group>"; };
 		D385C5521F33142700A66909 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Poloniex/SwampProject/build/Debug/CryptoSwift.framework; sourceTree = "<group>"; };
 		D385C5541F33142F00A66909 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Poloniex/SwampProject/build/Debug/Starscream.framework; sourceTree = "<group>"; };
 		D385C5561F33143300A66909 /* Swamp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swamp.framework; path = Poloniex/SwampProject/build/Debug/Swamp.framework; sourceTree = "<group>"; };
@@ -112,6 +121,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D36D10571F3824AA00BD7BEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D36D10581F3824C300BD7BEB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D38FF0341F2EEE5800699A7A /* AppDelegate.swift */,
+				D3C0F8CB1F2EF1F5002E8ADC /* HomeScreenController.swift */,
+				D3C0F8E11F2EFBBC002E8ADC /* AuthenticationViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D36D105C1F3847BC00BD7BEB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D333F8FD1F385B1B005C8A40 /* same.mp3 */,
+				D333F8FF1F385D67005C8A40 /* up.mp3 */,
+				D36D10611F384EAE00BD7BEB /* down.mp3 */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D385C5511F33142700A66909 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,9 +185,10 @@
 		D38FF0331F2EEE5800699A7A /* Poloniex */ = {
 			isa = PBXGroup;
 			children = (
-				D38FF0341F2EEE5800699A7A /* AppDelegate.swift */,
-				D3C0F8CB1F2EF1F5002E8ADC /* HomeScreenController.swift */,
-				D3C0F8E11F2EFBBC002E8ADC /* AuthenticationViewController.swift */,
+				D36D105C1F3847BC00BD7BEB /* Supporting Files */,
+				D36D10591F382C9500BD7BEB /* Poloniex.entitlements */,
+				D36D10581F3824C300BD7BEB /* Controller */,
+				D36D10571F3824AA00BD7BEB /* Model */,
 				D3C0F8D81F2EF7B2002E8ADC /* RNCryptor.c */,
 				D3C0F8D91F2EF7B2002E8ADC /* RNCryptor.h */,
 				D38FF0381F2EEE5800699A7A /* Main.storyboard */,
@@ -176,6 +213,7 @@
 				D3C0F8DC1F2EF862002E8ADC /* PoloniexRequestPrivate.swift */,
 				D3C0F8E31F2F0A7E002E8ADC /* Crypto.swift */,
 				D3C0F8DD1F2EF862002E8ADC /* PoloniexRequestPublic.swift */,
+				D36D105A1F383D3000BD7BEB /* Constants.swift */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -216,6 +254,14 @@
 						DevelopmentTeam = 6J9735Q573;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -243,7 +289,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D38FF0421F2EEE5800699A7A /* LaunchScreen.storyboard in Resources */,
+				D333F8FE1F385B1B005C8A40 /* same.mp3 in Resources */,
 				D38FF03F1F2EEE5800699A7A /* Assets.xcassets in Resources */,
+				D333F9001F385D67005C8A40 /* up.mp3 in Resources */,
+				D36D10631F384EAE00BD7BEB /* down.mp3 in Resources */,
 				D38FF03A1F2EEE5800699A7A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +315,7 @@
 				D38FF03D1F2EEE5800699A7A /* Poloniex.xcdatamodeld in Sources */,
 				D3C0F8E41F2F0A7E002E8ADC /* Crypto.swift in Sources */,
 				D3C0F8E21F2EFBBC002E8ADC /* AuthenticationViewController.swift in Sources */,
+				D36D105B1F383D3000BD7BEB /* Constants.swift in Sources */,
 				D3C0F8D21F2EF220002E8ADC /* Extensions.swift in Sources */,
 				D3C0F8DA1F2EF7B2002E8ADC /* RNCryptor.c in Sources */,
 			);
@@ -393,6 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Poloniex/Poloniex.entitlements;
 				DEVELOPMENT_TEAM = 6J9735Q573;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -414,6 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Poloniex/Poloniex.entitlements;
 				DEVELOPMENT_TEAM = 6J9735Q573;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
