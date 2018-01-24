@@ -31,8 +31,13 @@ public extension Double {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         return dateFormatter.string(from: date)
-        
     }
+    
+    func relativeDifference (changedValue: Double) -> Double {
+        let relDiff = 100*(changedValue - self)/self
+        return relDiff
+    }
+    
 }
 
 public extension Date {
@@ -42,4 +47,50 @@ public extension Date {
         let UTC = self.timeIntervalSince1970
         return UTC
     }
+}
+
+
+public extension Array {
+    
+    func shift(withDistance distance: Int = 1) -> Array<Element> {
+        let offsetIndex = distance >= 0 ?
+            self.index(startIndex, offsetBy: distance, limitedBy: endIndex) :
+            self.index(endIndex, offsetBy: distance, limitedBy: startIndex)
+        
+        guard let index = offsetIndex else { return self }
+        return Array(self[index ..< endIndex] + self[startIndex ..< index])
+    }
+    
+    mutating func shiftInPlace(withDistance distance: Int = 1) {
+        self = shift(withDistance: distance)
+    }
+    
+}
+
+public extension Array where Element == Double {
+    
+    mutating func add(number: Double) -> Int
+    {
+        var i:Int
+        i = self.index(where: { $0 == 0 }) ?? -1
+        if i == -1 {
+            self = self.shift(withDistance: 1)
+            i = (liveFeedSize-1)
+        }
+        self[i]=number
+        return i+1 //returns the size of the collected data in the array 
+    }
+    
+    func movingPointAverage (numberOfRecentElementsToAverage : Int, dataSize: Int) -> Double {
+        var n:Int
+        if numberOfRecentElementsToAverage > dataSize {
+            print ("Error: can't average more elements than contained in the data, reducing averaging length to data size.")
+            n = dataSize
+        } else {
+            n = numberOfRecentElementsToAverage
+        }
+        let mpa = self[dataSize-n...dataSize-1].reduce(0, +)/Double(n)
+        return mpa
+    }
+    
 }

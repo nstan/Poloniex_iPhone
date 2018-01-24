@@ -23,33 +23,53 @@ class HomeScreenController: UIViewController, SwampSessionDelegate, UIPickerView
     @IBOutlet weak var lastLabel: UILabel!
     
     let tickerNotificationName = Notification.Name(rawValue:tickerUpdatedNotificationKey)
+    let orderBookNotificationName = Notification.Name(rawValue:orderBookAndTradesUpdatedNotificationKey)
+    
+    var averageTicker : [Double] = Array<Double>(repeating: Double(), count: liveFeedSize)
+    
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
-    var tickr : Ticker = Ticker(currencyPair: "", last: 0, lowestAsk: 0, highestBid: 0, percentChange: 0, baseVolume: 0, quoteVolume: 0)
     var currencyPairSetting = "USDT_ETH"
     var currencyPairList = ["USDT_ETH", "BTC_ETH", "USDT_BTC"]
     
-    var downUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "down", ofType:"mp3")!)
-    var upUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "up", ofType:"mp3")!)
-    var sameUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "same", ofType:"mp3")!)
-    var audioPlayerUp = AVAudioPlayer()
-    var audioPlayerSame = AVAudioPlayer()
-    var audioPlayerDown = AVAudioPlayer()
+    var tickr : LiveTicker = LiveTicker(currencyPair: "", last: 0, lowestAsk: 0, highestBid: 0, percentChange: 0, baseVolume: 0, quoteVolume: 0, isFrozen: false, twentyFourHrHigh: 0, twentyFourHrLow: 0)
+    var ordrBk : LiveOrderBook = LiveOrderBook(currencyPair: "", rate: 0, type: "", amount: 0)
+    
+    
+    //    var downUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "singleBeat", ofType:"mp3")!)
+    var doubleBeatURL = URL(fileURLWithPath: Bundle.main.path(forResource: "doubleBeat", ofType:"mp3")!)
+    var singleBeatURL = URL(fileURLWithPath: Bundle.main.path(forResource: "singleBeat", ofType:"mp3")!)
+    
+    var audioEngine: AVAudioEngine!
+    var audioFile: AVAudioFile!
+    
+    //    var audioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        /* Initialize audio players */
+        audioEngine = AVAudioEngine()
         do {
-            audioPlayerUp = try AVAudioPlayer(contentsOf: upUrl)
-            audioPlayerDown = try AVAudioPlayer(contentsOf: downUrl)
-            audioPlayerSame = try AVAudioPlayer(contentsOf: sameUrl)
-        }
-        catch { print ("couldn't load audio file") }
+            try audioFile = AVAudioFile(forReading: doubleBeatURL)
+        } catch {print (error)}
+        
+        //        self.audioPlayer.stop()
+        self.audioEngine.stop()
+        self.audioEngine.reset()
+        
+        let audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attach(audioPlayerNode)
+        let changePitchEffect = AVAudioUnitTimePitch()
+        changePitchEffect.pitch = 1000
+        audioEngine.attach(changePitchEffect)
+        audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
+        audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
+        try! audioEngine.start()
+        audioPlayerNode.play()
+        
         
         /* Initialize the view */
         lastLabel.text = "0"
@@ -64,18 +84,37 @@ class HomeScreenController: UIViewController, SwampSessionDelegate, UIPickerView
         
         updateView ()
         keys = KeyLoader.loadKeys("publicKey", "secretKey")
+        
+        // Swamp connection to Poloniex Push Api
         let swampTransport = WebSocketSwampTransport(wsEndpoint:  URL(string: "wss://api.poloniex.com")!)
         let swampSession = SwampSession(realm: "realm1", transport: swampTransport)
-        
-        //        // Set delegate for callbacks
-        //        NotificationCenter.default.addObserver(self, selector: #selector(HomeScreenController.updateTicker), name: tickerRecievedNotificationName, object: nil)
         swampSession.delegate = self
         swampSession.connect()
-        createObservers()
         
+        // Initiating created observers
+        createObservers()
     }
     
     
+    func playAudioWithVariablePitch (pitch: Double) {
+        //        self.audioPlayer.stop()
+        self.audioEngine.stop()
+        self.audioEngine.reset()
+        
+        let audioPlayerNode = AVAudioPlayerNode()
+        self.audioEngine.attach(audioPlayerNode)
+        
+        let changePitchEffect = AVAudioUnitTimePitch()
+        changePitchEffect.pitch = Float(pitch)
+        self.audioEngine.attach(changePitchEffect)
+        
+        self.audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
+        self.audioEngine.connect(changePitchEffect, to: self.audioEngine.outputNode, format: nil)
+        
+        audioPlayerNode.scheduleFile(self.audioFile, at: nil, completionHandler: nil)
+        try! self.audioEngine.start()
+        audioPlayerNode.play()
+    }
     
     func createObservers() {
         // ticker update observer
@@ -83,21 +122,76 @@ class HomeScreenController: UIViewController, SwampSessionDelegate, UIPickerView
     }
     
     func updateTickerLabel (notification: NSNotification) {
-        let difference : Double = self.tickr.last - Double(self.lastLabel.text ?? "0")!
-        if difference.isLess(than: -tickerUpdatePriceChangeThreshold) {
-            
-                self.audioPlayerDown.play()
-                print("price down")
-        } else if !(difference.isLessThanOrEqualTo(tickerUpdatePriceChangeThreshold)) {
-                self.audioPlayerUp.play()
-                print("price up")
-        } else {
-            self.audioPlayerSame.play()
-            print("price within +- 0.1")
-        }
-        self.lastLabel.text = String(self.tickr.last)
+        print ("Last price: \(Double(self.lastLabel.text!)!) New Price: \(self.tickr.last)")
+        let i = averageTicker.add(number: self.tickr.last)
+        let movingPointAverage = averageTicker.movingPointAverage(numberOfRecentElementsToAverage: movingAverageSize, dataSize: i)
+        let relativeDifference : Double = 100*(self.tickr.last/movingPointAverage - 1)
+        print ("MPA: \(movingPointAverage)")
+        print ("rel diff: \(relativeDifference)")
+        print ("rel diff: \(self.tickr.percentChange)")
+        var pitch = pitchMean + relativeDifference*pitchDeviation
+        if pitch.isLess(than: 0) {pitch = 1}
+        playAudioWithVariablePitch (pitch: pitch)
+        print ("pitch: \(pitch)")
+        self.lastLabel.text = String(self.tickr.last) //update the screen ticker
     }
     
+    func processOrderData (_ kwResults: [String:Any]?, _ results: [Any?]) {
+        let seq = kwResults!["seq"] as! Int
+        print ("seq number is \((seq))")
+        
+        for x in results {
+            guard let x = x as! [AnyHashable: Any]?, let y:[AnyHashable:Any] = x["data"] as! [AnyHashable : Any], let type = x["type"] as! String? else {print ("problem reading data"); return}
+            switch type {
+            case "orderBookModify":
+                print("case is orderBookModify")
+            case "orderBookRemove":
+                print("case is orderBookRemove")
+            case "newTrade":
+                print("case is newTrade")
+            default:
+                true;
+            }
+            print ("let's zee:" + (x["type"] as! String))
+            print ("let's nee:" + (y["rate"] as! String))
+            print ("let's nee:" + (y["type"] as! String))
+        }
+        
+        
+//        var json: [Any]?
+        
+//            do {
+//                json = try JSONSerialization.jsonObject(with: results, options: JSONSerialization.ReadingOptions.mutableContainers)  as? [AnyObject]
+//            } catch {
+//                
+//                print("error")
+//                //handle errors here
+//                
+//            }
+
+        //
+//        guard let seq = kwResults["seq"] as! Int else {return}
+//        do {
+//            if let data = results ,
+//                let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]{
+//                
+//                }
+//            }
+//        catch {
+//            print("Error deserializing JSON: \(error)")
+//        }
+//        
+//        
+//        do {
+//            let dict:[String: Any?] = try JSONSerialization.jsonObject(with: results, options: nil) as! [String: Any?]
+//            successful = (dict["success"] != nil)
+//            message = dict["message"] as! String
+//            amount = Double(dict["amount"] as! String)!
+//        } catch {
+//            print("couldn't decode JSON")
+//            return }
+//        NotificationCenter.default.post(name: self.orderBookNotificationName, object: nil)
+    }
     
     func swampSessionHandleChallenge(_ authMethod: String, extra: [String : Any])-> String {
         print("authMethod is " + authMethod)
@@ -109,6 +203,8 @@ class HomeScreenController: UIViewController, SwampSessionDelegate, UIPickerView
     
     func swampSessionConnected(_ session: SwampSession, sessionId: Int) {
         print ("Swamp session connected, ID : \(sessionId)")
+        
+        // Subscribe to ticker
         session.subscribe("ticker", options: ["disclose_me": true],
                           onSuccess: { subscription in
                             print ("subscribe successful")
@@ -118,14 +214,32 @@ class HomeScreenController: UIViewController, SwampSessionDelegate, UIPickerView
         }, onEvent: { details, results, kwResults in
             let cp = results?[0] as! String
             if cp == self.currencyPairSetting {
-                self.tickr = Ticker(currencyPair: (results?[0] as! String), last: Double(results?[1] as! String)!, lowestAsk: Double(results?[2] as! String)!, highestBid: Double(results?[3] as! String)!, percentChange: Double(results?[4] as! String)!, baseVolume: Double(results?[5] as! String)!, quoteVolume: Double(results?[6] as! String)!)
-                let name = Notification.Name(rawValue:tickerUpdatedNotificationKey)
-                NotificationCenter.default.post(name: name, object: nil)
-                
-//                self.updateView()
+                self.tickr = LiveTicker(currencyPair: (results?[0] as! String), last: Double(results?[1] as! String)!, lowestAsk: Double(results?[2] as! String)!, highestBid: Double(results?[3] as! String)!, percentChange: Double(results?[4] as! String)!, baseVolume: Double(results?[5] as! String)!, quoteVolume: Double(results?[6] as! String)!, isFrozen: false, twentyFourHrHigh: 0, twentyFourHrLow: 0)
+                NotificationCenter.default.post(name: self.tickerNotificationName, object: nil)
             }
             // Event data is usually in results, but manually check blabla yadayada
         })
+        
+        // Subscribe to currency pair order book and trades
+        session.subscribe(currencyPairSetting, options: ["disclose_me": true],
+                          onSuccess: { subscription in
+                            print ("subscribe to \(self.currencyPairSetting) successful")
+                            // subscription can be stored for subscription.cancel()
+        }, onError: { details, error in print ("error subscribing:" + error)
+            // handle error
+        }, onEvent: { details, results, kwResults in
+            print ("orderBook update received")
+            
+            self.processOrderData (kwResults, results!)
+            
+        })
+        
+//                self.tickr = Ticker(currencyPair: (results?[0] as! String), last: Double(results?[1] as! String)!, lowestAsk: Double(results?[2] as! String)!, highestBid: Double(results?[3] as! String)!, percentChange: Double(results?[4] as! String)!, baseVolume: Double(results?[5] as! String)!, quoteVolume: Double(results?[6] as! String)!)
+        
+
+            // Event data is usually in results, but manually check blabla yadayada
+    
+        
     }
     
     func swampSessionEnded(_ reason: String){
@@ -169,11 +283,9 @@ class HomeScreenController: UIViewController, SwampSessionDelegate, UIPickerView
     
     
     @IBAction func checkOpenOrdersButton(_ sender: UIButton) {
-        DispatchQueue.global(qos: .userInitiated).async {
             var response : String = ""
             
             let (oO, e) = OpenOrdersLoader.returnOpenOrders(currencyPair:"all", keys!)
-            DispatchQueue.main.async {
                 for x in oO {
                     response = response + String.localizedStringWithFormat("%@: (%@) %.3f at the price of %.3f\n", x.currencyPair!, x.type!, x.amount!, x.rate!)
                 }
@@ -183,14 +295,11 @@ class HomeScreenController: UIViewController, SwampSessionDelegate, UIPickerView
                 else {
                     self.openOrdersLabel.text = response
                 }
-            }
-        }
-        
     }
     
     
     func updateView () {
-//            lastLabel.text = String(self.tickr.last)
+        //            lastLabel.text = String(self.tickr.last)
     }
 }
 

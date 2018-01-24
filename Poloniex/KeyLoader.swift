@@ -14,7 +14,6 @@ public struct KeyLoader {
             print ("No keys stored in keychain")
             return nil
         }
-        print ("loaded key:" + pK)
         return APIKeys(key: pK, secret: sK)
     }
 }

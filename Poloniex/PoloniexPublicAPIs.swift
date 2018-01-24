@@ -73,8 +73,9 @@ public struct TickerLoader {
             }
             finished = true
         })
-        
-       session.resumeAfter(requestDelayTime, tickersTask)
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.resumeAfter(requestDelayTime, tickersTask)
+        }
         while(!finished) {}
         print ("Task completed at time: " + String(describing: DispatchTime.now()))
         return tickers
@@ -82,7 +83,7 @@ public struct TickerLoader {
 }
 
 
-/* return 24 Volume 
+/* return 24 Volume
  Returns the 24-hour volume for all markets, plus totals for primary currencies. */
 
 public struct Volume24: CustomStringConvertible {
@@ -164,8 +165,9 @@ public struct Volume24Loader {
             }
             finished = true
         })
-        
-        session.resumeAfter(requestDelayTime, volume24Task)
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.resumeAfter(requestDelayTime, volume24Task)
+        }
         while(!finished) {}
         return (volumes: volume24s, totals: totals)
     }
@@ -281,7 +283,9 @@ public struct OrderBookLoader {
                 return }
             finished = true
         })
-        session.resumeAfter(requestDelayTime, orderBookTask)
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.resumeAfter(requestDelayTime, orderBookTask)
+        }
         while(!finished) {}
         return orderBooks
     }
@@ -290,7 +294,7 @@ public struct OrderBookLoader {
 /* returnTradeHistory 
  Returns the past 200 trades for a given market, or up to 50,000 trades between a range specified in UNIX timestamps by the "start" and "end" GET parameters.*/
 
-public struct TradeHistory: CustomStringConvertible {
+public struct Trade: CustomStringConvertible {
     var currencyPair: String?
     var globalTradeID: Int?
     var tradeID: Int?
@@ -309,7 +313,7 @@ public struct TradeHistory: CustomStringConvertible {
 
 
 public struct TradeHistoryLoader {
-    public static func returnTradeHistory (currencyPair: String, start: Date, end: Date) -> ([TradeHistory]) {
+    public static func returnTradeHistory (currencyPair: String, start: Date, end: Date) -> ([Trade]) {
         /* currency pair is required and cannot be set to "all", start and end are specified in UNIX timestamps and if leftout the response gives a default time range*/
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let startUTC = start.timeIntervalSince1970
@@ -317,7 +321,7 @@ public struct TradeHistoryLoader {
         let PoloniexRequest = PoloniexRequestPublic(params: ["command": "returnTradeHistory", "currencyPair": currencyPair, "start": String(startUTC), "end": String(endUTC)])
         let request = PoloniexRequest.urlRequest
         var finished = false
-        var tradeHistories = [TradeHistory]()
+        var tradeHistories = [Trade]()
         let tradeHistoryTask = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
             guard let data = data, let responseBody = String(data: data, encoding: .utf8) else {
                 print("couldn't decode data")
@@ -340,7 +344,7 @@ public struct TradeHistoryLoader {
             do {
                 let dict: [[AnyHashable: Any?]] = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as!  [[AnyHashable: Any?]]
                 for x in dict {
-                    var tH: TradeHistory = TradeHistory()
+                    var tH: Trade = Trade()
                     tH.currencyPair = currencyPair
                     tH.globalTradeID = x["globalTradeID"] as? Int
                     tH.tradeID = x["tradeID"] as? Int
@@ -362,7 +366,9 @@ public struct TradeHistoryLoader {
                 return }
             finished = true
         })
-        session.resumeAfter(requestDelayTime, tradeHistoryTask)
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.resumeAfter(requestDelayTime, tradeHistoryTask)
+        }
         while(!finished) {}
         return tradeHistories
     }
@@ -440,7 +446,9 @@ public struct ChartDataLoader {
                 return }
             finished = true
         })
-        session.resumeAfter(requestDelayTime, chartDataTask)
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.resumeAfter(requestDelayTime, chartDataTask)
+        }
         while(!finished) {}
         return chartDatas
     }
@@ -515,7 +523,9 @@ public struct CurrenciesLoader {
                 return }
             finished = true
         })
-        session.resumeAfter(requestDelayTime, currenciesTask)
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.resumeAfter(requestDelayTime, currenciesTask)
+        }
         while(!finished) {}
         return currencies
     }

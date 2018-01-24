@@ -9,16 +9,15 @@
 /* Begin PBXBuildFile section */
 		D333F8FE1F385B1B005C8A40 /* same.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D333F8FD1F385B1B005C8A40 /* same.mp3 */; };
 		D333F9001F385D67005C8A40 /* up.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D333F8FF1F385D67005C8A40 /* up.mp3 */; };
+		D35D22F11F392F5E009F1381 /* AudioFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35D22F01F392F5E009F1381 /* AudioFunctions.swift */; };
+		D35D22F41F3953A5009F1381 /* doubleBeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D35D22F21F3953A5009F1381 /* doubleBeat.mp3 */; };
+		D35D22F51F3953A5009F1381 /* singleBeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D35D22F31F3953A5009F1381 /* singleBeat.mp3 */; };
+		D35D22F71F399D95009F1381 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35D22F61F399D95009F1381 /* Data.swift */; };
 		D36D10481F36AA7700BD7BEB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10471F36AA7700BD7BEB /* SwiftyJSON.framework */; };
-		D36D10491F36AA7700BD7BEB /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10471F36AA7700BD7BEB /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D36D104B1F36AA7700BD7BEB /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36D104A1F36AA7700BD7BEB /* Starscream.framework */; };
-		D36D104C1F36AA7700BD7BEB /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36D104A1F36AA7700BD7BEB /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D36D104E1F36AA7700BD7BEB /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36D104D1F36AA7700BD7BEB /* CryptoSwift.framework */; };
-		D36D104F1F36AA7700BD7BEB /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36D104D1F36AA7700BD7BEB /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D36D10511F36AA7700BD7BEB /* Swamp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10501F36AA7700BD7BEB /* Swamp.framework */; };
-		D36D10521F36AA7700BD7BEB /* Swamp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10501F36AA7700BD7BEB /* Swamp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D36D10541F36AA7700BD7BEB /* SwampProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10531F36AA7700BD7BEB /* SwampProject.framework */; };
-		D36D10551F36AA7700BD7BEB /* SwampProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10531F36AA7700BD7BEB /* SwampProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D36D105B1F383D3000BD7BEB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36D105A1F383D3000BD7BEB /* Constants.swift */; };
 		D36D10631F384EAE00BD7BEB /* down.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D36D10611F384EAE00BD7BEB /* down.mp3 */; };
 		D385C5531F33142700A66909 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385C5521F33142700A66909 /* CryptoSwift.framework */; };
@@ -31,6 +30,12 @@
 		D38FF03D1F2EEE5800699A7A /* Poloniex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D38FF03B1F2EEE5800699A7A /* Poloniex.xcdatamodeld */; };
 		D38FF03F1F2EEE5800699A7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D38FF03E1F2EEE5800699A7A /* Assets.xcassets */; };
 		D38FF0421F2EEE5800699A7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D38FF0401F2EEE5800699A7A /* LaunchScreen.storyboard */; };
+		D3A0170A1F3BB6D9001D2B5D /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A017091F3BB6D9001D2B5D /* DataStructures.swift */; };
+		D3A4C2431FBEEED600FEDE2D /* Swamp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10501F36AA7700BD7BEB /* Swamp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D3A4C2441FBEEED600FEDE2D /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36D104D1F36AA7700BD7BEB /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D3A4C2451FBEEED600FEDE2D /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36D104A1F36AA7700BD7BEB /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D3A4C2461FBEEED600FEDE2D /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10471F36AA7700BD7BEB /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D3A4C2471FBEEEDD00FEDE2D /* SwampProject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D36D10531F36AA7700BD7BEB /* SwampProject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3C0F8CC1F2EF1F5002E8ADC /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C0F8CB1F2EF1F5002E8ADC /* HomeScreenController.swift */; };
 		D3C0F8D21F2EF220002E8ADC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C0F8CE1F2EF220002E8ADC /* Extensions.swift */; };
 		D3C0F8D31F2EF220002E8ADC /* PoloniexPrivateAPIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C0F8CF1F2EF220002E8ADC /* PoloniexPrivateAPIs.swift */; };
@@ -51,11 +56,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D36D10551F36AA7700BD7BEB /* SwampProject.framework in Embed Frameworks */,
-				D36D104F1F36AA7700BD7BEB /* CryptoSwift.framework in Embed Frameworks */,
-				D36D10491F36AA7700BD7BEB /* SwiftyJSON.framework in Embed Frameworks */,
-				D36D104C1F36AA7700BD7BEB /* Starscream.framework in Embed Frameworks */,
-				D36D10521F36AA7700BD7BEB /* Swamp.framework in Embed Frameworks */,
+				D3A4C2471FBEEEDD00FEDE2D /* SwampProject.framework in Embed Frameworks */,
+				D3A4C2431FBEEED600FEDE2D /* Swamp.framework in Embed Frameworks */,
+				D3A4C2441FBEEED600FEDE2D /* CryptoSwift.framework in Embed Frameworks */,
+				D3A4C2451FBEEED600FEDE2D /* Starscream.framework in Embed Frameworks */,
+				D3A4C2461FBEEED600FEDE2D /* SwiftyJSON.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,8 +68,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D31A4D791FBEFB4D00882557 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D333F8FD1F385B1B005C8A40 /* same.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = same.mp3; sourceTree = "<group>"; };
 		D333F8FF1F385D67005C8A40 /* up.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = up.mp3; sourceTree = "<group>"; };
+		D35D22F01F392F5E009F1381 /* AudioFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioFunctions.swift; sourceTree = "<group>"; };
+		D35D22F21F3953A5009F1381 /* doubleBeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = doubleBeat.mp3; sourceTree = "<group>"; };
+		D35D22F31F3953A5009F1381 /* singleBeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = singleBeat.mp3; sourceTree = "<group>"; };
+		D35D22F61F399D95009F1381 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		D36D10471F36AA7700BD7BEB /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36D104A1F36AA7700BD7BEB /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36D104D1F36AA7700BD7BEB /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +95,7 @@
 		D38FF03E1F2EEE5800699A7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D38FF0411F2EEE5800699A7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D38FF0431F2EEE5800699A7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3A017091F3BB6D9001D2B5D /* DataStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
 		D3C0F8CB1F2EF1F5002E8ADC /* HomeScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 		D3C0F8CE1F2EF220002E8ADC /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D3C0F8CF1F2EF220002E8ADC /* PoloniexPrivateAPIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoloniexPrivateAPIs.swift; sourceTree = "<group>"; };
@@ -134,6 +145,9 @@
 				D38FF0341F2EEE5800699A7A /* AppDelegate.swift */,
 				D3C0F8CB1F2EF1F5002E8ADC /* HomeScreenController.swift */,
 				D3C0F8E11F2EFBBC002E8ADC /* AuthenticationViewController.swift */,
+				D38FF0381F2EEE5800699A7A /* Main.storyboard */,
+				D38FF0401F2EEE5800699A7A /* LaunchScreen.storyboard */,
+				D38FF03E1F2EEE5800699A7A /* Assets.xcassets */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -141,6 +155,8 @@
 		D36D105C1F3847BC00BD7BEB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D35D22F21F3953A5009F1381 /* doubleBeat.mp3 */,
+				D35D22F31F3953A5009F1381 /* singleBeat.mp3 */,
 				D333F8FD1F385B1B005C8A40 /* same.mp3 */,
 				D333F8FF1F385D67005C8A40 /* up.mp3 */,
 				D36D10611F384EAE00BD7BEB /* down.mp3 */,
@@ -151,6 +167,7 @@
 		D385C5511F33142700A66909 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D31A4D791FBEFB4D00882557 /* AVFoundation.framework */,
 				D385C55A1F33143C00A66909 /* SwiftyJSON.framework */,
 				D385C5581F33143700A66909 /* SwampProject.framework */,
 				D385C5561F33143300A66909 /* Swamp.framework */,
@@ -190,10 +207,8 @@
 				D36D10581F3824C300BD7BEB /* Controller */,
 				D36D10571F3824AA00BD7BEB /* Model */,
 				D3C0F8D81F2EF7B2002E8ADC /* RNCryptor.c */,
+				D35D22F61F399D95009F1381 /* Data.swift */,
 				D3C0F8D91F2EF7B2002E8ADC /* RNCryptor.h */,
-				D38FF0381F2EEE5800699A7A /* Main.storyboard */,
-				D38FF03E1F2EEE5800699A7A /* Assets.xcassets */,
-				D38FF0401F2EEE5800699A7A /* LaunchScreen.storyboard */,
 				D38FF0431F2EEE5800699A7A /* Info.plist */,
 				D38FF03B1F2EEE5800699A7A /* Poloniex.xcdatamodeld */,
 				D38FF0571F2EEEFE00699A7A /* lib */,
@@ -206,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				D3C0F8D51F2EF729002E8ADC /* KeyLoader.swift */,
+				D35D22F01F392F5E009F1381 /* AudioFunctions.swift */,
 				D3C0F8CE1F2EF220002E8ADC /* Extensions.swift */,
 				D3C0F8CF1F2EF220002E8ADC /* PoloniexPrivateAPIs.swift */,
 				D3C0F8D01F2EF220002E8ADC /* KeychainSwiftDistrib.swift */,
@@ -214,6 +230,7 @@
 				D3C0F8E31F2F0A7E002E8ADC /* Crypto.swift */,
 				D3C0F8DD1F2EF862002E8ADC /* PoloniexRequestPublic.swift */,
 				D36D105A1F383D3000BD7BEB /* Constants.swift */,
+				D3A017091F3BB6D9001D2B5D /* DataStructures.swift */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -246,7 +263,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Nikola Stan";
 				TargetAttributes = {
 					D38FF0301F2EEE5800699A7A = {
@@ -290,6 +307,8 @@
 			files = (
 				D38FF0421F2EEE5800699A7A /* LaunchScreen.storyboard in Resources */,
 				D333F8FE1F385B1B005C8A40 /* same.mp3 in Resources */,
+				D35D22F51F3953A5009F1381 /* singleBeat.mp3 in Resources */,
+				D35D22F41F3953A5009F1381 /* doubleBeat.mp3 in Resources */,
 				D38FF03F1F2EEE5800699A7A /* Assets.xcassets in Resources */,
 				D333F9001F385D67005C8A40 /* up.mp3 in Resources */,
 				D36D10631F384EAE00BD7BEB /* down.mp3 in Resources */,
@@ -309,6 +328,7 @@
 				D3C0F8CC1F2EF1F5002E8ADC /* HomeScreenController.swift in Sources */,
 				D3C0F8E01F2EF862002E8ADC /* PoloniexRequestPublic.swift in Sources */,
 				D3C0F8DF1F2EF862002E8ADC /* PoloniexRequestPrivate.swift in Sources */,
+				D3A0170A1F3BB6D9001D2B5D /* DataStructures.swift in Sources */,
 				D3C0F8D41F2EF220002E8ADC /* KeychainSwiftDistrib.swift in Sources */,
 				D38FF0351F2EEE5800699A7A /* AppDelegate.swift in Sources */,
 				D3C0F8D61F2EF729002E8ADC /* KeyLoader.swift in Sources */,
@@ -317,7 +337,9 @@
 				D3C0F8E21F2EFBBC002E8ADC /* AuthenticationViewController.swift in Sources */,
 				D36D105B1F383D3000BD7BEB /* Constants.swift in Sources */,
 				D3C0F8D21F2EF220002E8ADC /* Extensions.swift in Sources */,
+				D35D22F11F392F5E009F1381 /* AudioFunctions.swift in Sources */,
 				D3C0F8DA1F2EF7B2002E8ADC /* RNCryptor.c in Sources */,
+				D35D22F71F399D95009F1381 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +375,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -361,7 +385,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -384,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -404,7 +432,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -412,7 +442,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -429,7 +463,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -449,6 +483,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Poloniex/SwampProject/build/Debug",
+					"$(PROJECT_DIR)/Poloniex/SwampProject",
 				);
 				INFOPLIST_FILE = Poloniex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -471,6 +506,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Poloniex/SwampProject/build/Debug",
+					"$(PROJECT_DIR)/Poloniex/SwampProject",
 				);
 				INFOPLIST_FILE = Poloniex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

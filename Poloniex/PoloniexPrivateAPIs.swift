@@ -58,7 +58,9 @@ public struct BalancesLoader {
                 return }
             finished = true
         })
-        session.resumeAfter(requestDelayTime, balancesTask)
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.resumeAfter(requestDelayTime, balancesTask)
+        }
         while(!finished) {}
         return balances
     }
@@ -120,7 +122,9 @@ public struct BalancesCompleteLoader {
                 return }
             finished = true
         })
-        session.resumeAfter(requestDelayTime, balancesTask)
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.resumeAfter(requestDelayTime, balancesTask)
+        }
         while(!finished) {}
         return balances
     }
@@ -225,7 +229,9 @@ public struct OpenOrdersLoader {
                 return }
             finished = true
         })
-        session.resumeAfter(requestDelayTime, openOrdersTask)
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.resumeAfter(requestDelayTime, openOrdersTask)
+        }
         while(!finished) {}
         return (oOrders, errorO)
     }
@@ -238,14 +244,14 @@ public struct OpenOrdersLoader {
 // Struct TradeHistory is already declared for the Public API command returnTradeHistory
 
 public struct MyTradeHistoryLoader {
-    public static func returnTradeHistory (currencyPair: String, start: Date, end: Date, _ keys: APIKeys) -> ([TradeHistory]) {
+    public static func returnTradeHistory (currencyPair: String, start: Date, end: Date, _ keys: APIKeys) -> ([Trade]) {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let startUTC = start.timeIntervalSince1970
         let endUTC = end.timeIntervalSince1970
         let PoloniexRequest = PoloniexRequestPrivate(params: ["command": "returnTradeHistory", "currencyPair": currencyPair, "start": String(startUTC), "end": String(endUTC)], keys: keys)
         let request = PoloniexRequest.urlRequest
         var finished = false
-        var tradeHistories = [TradeHistory]()
+        var tradeHistories = [Trade]()
         let tradeHistoryTask = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
             guard let data = data, let responseBody = String(data: data, encoding: .utf8) else {
                 print("couldn't decode data")
@@ -266,12 +272,12 @@ public struct MyTradeHistoryLoader {
                 return
             }
             do {
-                var tH: TradeHistory = TradeHistory()
+                var tH: Trade = Trade()
                 if currencyPair != "all" {
                     let dict:[[String: Any?]] = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as!  [[String: Any?]]
                     if !dict.isEmpty {
                         for x in dict {
-                            tH = TradeHistory()
+                            tH = Trade()
                             tH.currencyPair = currencyPair;
                             tH.globalTradeID = (x["globalTradeID"] as? Int)!
                             tH.tradeID = Int((x["tradeID"] as? String)!)
@@ -295,7 +301,7 @@ public struct MyTradeHistoryLoader {
                         for (key, value) in dict {
                             if !value.isEmpty {
                                 for x in value {
-                                    tH = TradeHistory()
+                                    tH = Trade()
                                     tH.currencyPair = currencyPair;
                                     tH.globalTradeID = (x["globalTradeID"] as? Int)!
                                     tH.tradeID = Int((x["tradeID"] as? String)!)
@@ -322,7 +328,9 @@ public struct MyTradeHistoryLoader {
                 return }
             finished = true
         })
-        session.resumeAfter(requestDelayTime, tradeHistoryTask)
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.resumeAfter(requestDelayTime, tradeHistoryTask)
+        }
         while(!finished) {}
         return tradeHistories
     }
@@ -335,12 +343,12 @@ public struct MyTradeHistoryLoader {
 // Struct TradeHistory is already declared for the Public API command returnTradeHistory
 
 public struct MyOrderTradesLoader {
-    public static func returnOrderTrades (orderNumber: Int, _ keys: APIKeys) -> ([TradeHistory]) {
+    public static func returnOrderTrades (orderNumber: Int, _ keys: APIKeys) -> ([Trade]) {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         let PoloniexRequest = PoloniexRequestPrivate(params: ["command": "returnOrderTrades", "orderNumber": String(orderNumber)], keys: keys)
         let request = PoloniexRequest.urlRequest
         var finished = false
-        var tradeHistories = [TradeHistory]()
+        var tradeHistories = [Trade]()
         let tradeHistoryTask = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
             guard let data = data, let responseBody = String(data: data, encoding: .utf8) else {
                 print("couldn't decode data")
@@ -368,11 +376,11 @@ public struct MyOrderTradesLoader {
             }
             
             do {
-                var tH: TradeHistory = TradeHistory()
+                var tH: Trade = Trade()
                 let dict:[[String: Any?]] = try JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as!  [[String: Any?]]
                 if !dict.isEmpty {
                     for x in dict {
-                        tH = TradeHistory()
+                        tH = Trade()
                         tH.currencyPair = (x["currencyPair"] as? String)!
                         tH.globalTradeID = (x["globalTradeID"] as? Int)!
                         tH.tradeID = (x["tradeID"] as? Int)!
@@ -395,7 +403,9 @@ public struct MyOrderTradesLoader {
                 return }
             finished = true
         })
-        session.resumeAfter(requestDelayTime, tradeHistoryTask)
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.resumeAfter(requestDelayTime, tradeHistoryTask)
+        }
         while(!finished) {}
         return tradeHistories
     }
@@ -453,7 +463,9 @@ public struct MyOrderCancelLoader {
                 return }
             finished = true
         })
-        session.resumeAfter(requestDelayTime, cancelOrderTask)
+        DispatchQueue.global(qos: .userInitiated).async {
+            session.resumeAfter(requestDelayTime, cancelOrderTask)
+        }
         while(!finished) {}
         return (successful, message, amount)
     }
